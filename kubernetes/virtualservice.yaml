@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: l7-grpc-test-go
+spec:
+  gateways:
+    - api-gateway
+  hosts:
+    - l7-test-demo-go.example.com
+    - l7-test-ctl-go.example.com
+  http:
+    - match:
+        - authority:
+            exact: l7-test-demo-go.example.com
+      route:
+        - destination:
+            host: l7-grpc-test-go.svc.cluster.local
+            port:
+              number: 8081
+    - match:
+        - authority:
+            exact: l7-test-ctl-go.example.com
+      route:
+        - destination:
+            host: l7-grpc-test-go.svc.cluster.local
+            port:
+              number: 80

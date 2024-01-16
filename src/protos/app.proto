@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "LbIssue";
+option go_package = "github.com/taxfyle/lb-issue-repro/src/go/pb";
+
+package lb_issue;
+
+service Demo {
+  rpc StreamMessages (StreamMessagesRequest) returns (stream StreamMessagesResponse);
+}
+
+message StreamMessagesRequest {
+  string name = 1;
+}
+
+message StreamMessagesResponse {
+  string message = 1;
+}

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: l7-grpc-test-go
+  name: l7-grpc-test-go
+spec:
+  ports:
+    - name: grpc-l7-grpc-test-go
+      port: 8081
+      protocol: TCP
+      targetPort: 9999
+    - name: http-l7-grpc-test-go
+      port: 80
+      protocol: TCP
+      targetPort: 9998
+  selector:
+    app: l7-grpc-test-go
+  type: ClusterIP

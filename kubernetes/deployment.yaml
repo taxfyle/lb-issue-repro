@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: l7-grpc-test-go
+  name: l7-grpc-test-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: l7-grpc-test-go
+  template:
+    metadata:
+      labels:
+        app: l7-grpc-test-go
+    spec:
+      containers:
+        - image: THE_IMAGE
+          imagePullPolicy: IfNotPresent
+          name: server
+          ports:
+            - containerPort: 9999
+              name: grpc
+              protocol: TCP
+            - containerPort: 9998
+              name: http
+              protocol: TCP
+      imagePullSecrets:
+        - name: gcr-credentials
+      restartPolicy: Always

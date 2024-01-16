@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+
+COPY build/go-server.linux.amd64 /bin/go-server
+
+EXPOSE 9999
+EXPOSE 9998
+
+CMD ["/bin/go-server"]
