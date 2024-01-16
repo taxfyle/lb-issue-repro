@@ -18,3 +18,5 @@ L7 load balancer was created by a GKE `Ingress`. Both GCP load balancers point t
 
 Istio has a `Gateway` configured to listen on port 443 for HTTPS traffic. The `VirtualService` is what routes
 traffic to the right port based on the hostname.
+
+This architecture is the same as the one referenced [here](https://cloud.google.com/architecture/exposing-service-mesh-apps-through-gke-ingress#cloud_ingress_and_mesh_ingress).
