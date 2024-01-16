@@ -4,4 +4,4 @@ This is a minimal gRPC streaming demo. The server is in `src/dotnet/LbIssue.ApiH
 * `5001` - HTTP/1.1, used for the `GET /send` method for sending messages
 * `5002` - HTTP/2, the gRPC endpoint that the client connects to
 
-The `src/dotnet/LbIssue.Client` is a command-line app that we can `dotnet run -- YourName https://url.to.deployment` to set up a stream listener.
+The `src/dotnet/LbIssue.Client` is a command-line app that we can `dotnet run -- https://url.to.deployment` to set up a stream listener.

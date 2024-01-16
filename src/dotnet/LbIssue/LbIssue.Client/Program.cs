@@ -3,8 +3,8 @@ using Grpc.Net.Client;
 using LbIssue;
 
 var address = "http://localhost:5002";
-var name = args.ElementAtOrDefault(0) ?? throw new Exception("Missing name");
-var arg = args.ElementAtOrDefault(1);
+const string name = "Dotnet";
+var arg = args.FirstOrDefault();
 if (!string.IsNullOrEmpty(arg))
 {
     address = arg;

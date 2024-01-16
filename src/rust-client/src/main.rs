@@ -9,7 +9,7 @@ use tonic::transport::Endpoint;
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let endpoint = std::env::args().collect::<Vec<_>>().get(1)
-        .unwrap_or(&"http://localhost:5001".to_owned())
+        .unwrap_or(&"http://localhost:5002".to_owned())
         .clone();
     println!("Connecting to {}", &endpoint);
     let channel = Endpoint::try_from(endpoint)?
